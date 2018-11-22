@@ -44,7 +44,12 @@ if routeur not in dataBancs:
 	sys.stdout.flush()
 	sys.exit()
 
-macListBanc = db.reference("/presence/" + routeur).get()["adresses"]
+try:
+	macListBanc = db.reference("/presence/" + routeur).get()["adresses"]
+except:
+	sys.stdout.write("Aucune connection")
+	sys.stdout.flush()
+	sys.exit()
 	
 macList = Counter(macList)
 
