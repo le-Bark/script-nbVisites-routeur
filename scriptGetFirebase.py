@@ -10,21 +10,19 @@ routeur = sys.argv[1]
 
 #initialiser la base de donee
 
-idBanc = "Routeur1"
+
 
 cred = credentials.Certificate("cle_db.json")
 
 firebase_admin.initialize_app(cred,{ "databaseURL" : "https://routeur-18013.firebaseio.com/"})
 
-ref = db.reference("/Bancs/" + idBanc)
+ref = db.reference("/Bancs/" + routeur)
 
 #extraction des données de tout les bancs
 dataBancs = db.reference("/Bancs").get()
 
 #contientlesentrees "arrive" dans la db
 macList = list()
-#contient les entrees depart
-macListDepart = list()
 
 #dataBancs dict
 for i in dataBancs.keys():

@@ -41,6 +41,7 @@ if routeur not in dataBancs:
 
 adresse = str()
 banc = dataBancs[routeur]
+
 for i in banc.keys():
 	if banc[i]["type"] == "ajout":
 		adresse = banc[i]["adresse"]
